@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input id="bredde" type="range" min="1" max="500" step="1" oninput="calculate()" onchange="calculate()" value="250" />
+    <input id="høyde" type="range" min="1" max="500" step="1" oninput="calculate()" value="250" />
+
+    <input id="bredde2" type="range" min="1" max="500" step="1" style="float:right;"  oninput="calculate()" onchange="calculate()" value="250" />
+    <input id="høyde2" type="range" min="1" max="500" step="1" style="float:right;" oninput="calculate()" value="250" />
+
+
+    <div id="result"></div><br />
+    <div id="resulta" style="float:right;">heisann</div>
+    <div id="boks" style="background-color:green"></div>
+    <div id="boks2" style="background-color:blue; float:right;"></div><br />
+    <div id="resultb"></div>
+
+    <script>
+        var resultDiv = document.getElementById('result');
+         
+        var breddeInput = document.getElementById('bredde');
+        var høydeInput = document.getElementById('høyde');
+        var firkant = document.getElementById('boks')
+
+        var resultaDiv = document.getElementById('resulta')
+        var firkant2 = document.getElementById('boks2')
+        var bredde2Input = document.getElementById('bredde2');
+        var høyde2Input = document.getElementById('høyde2');
+
+        var resultbDiv = document.getElementById('resultb')
+
+        calculate();
+        function calculate() {
+
+            var bredde = breddeInput.value;
+            var høyde = høydeInput.value;
+            var areal = høyde * bredde;
+
+            var bredde2 = bredde2Input.value;
+            var høyde2 = høyde2Input.value;
+            var areal2 = høyde2 * bredde2;
+
+            firkant.style.width = bredde + 'px';
+            firkant.style.height = høyde + 'px';
+
+            firkant2.style.width = bredde2 + 'px';
+            firkant2.style.height = høyde2 + 'px';
+
+            resultbDiv.innerHTML = '' +
+                bredde + '*' + høyde + '=' + areal + ' areal';
+            if (areal == areal2) {
+                resultbDiv.innerHTML += '<br>== The numbers are equal';
+            } else {
+                resultbDiv.innerHTML += '<br>== <del>The numbers are equal</del>';
+            }
+            if (areal != areal2) {
+                resultbDiv.innerHTML += '<br/>!= the numbers are not equal';
+            } else {
+                resultbDiv.innerHTML += '<br/>!= <del>the numbers are not equal</del>';
+            }
+            if (areal >= areal2) {
+                resultbDiv.innerHTML += '<br/>>= ' + areal + ' greater or equal ' + areal2;
+            } else {
+                resultbDiv.innerHTML += '<br/>>= <del>' + areal + ' greater or equal ' + areal2 + '</del>';
+            }
+            if (areal > areal2) {
+                resultbDiv.innerHTML += '<br/>> ' + areal + ' greater than ' + areal2;
+            } else {
+                resultbDiv.innerHTML += '<br/>> <del>' + areal + ' greater than ' + areal2 + '</del>';
+            }
+            if (areal <= areal2) {
+                resultbDiv.innerHTML += '<br/><= ' + areal + ' less or equal ' + areal2;
+            } else {
+                resultbDiv.innerHTML += '<br/><= <del>' + areal + ' less or equal ' + areal2 + '</del>';
+            }
+            if (areal < areal2) {
+                resultbDiv.innerHTML += '<br/>< ' + areal + ' less than ' + areal2;
+            } else {
+                resultbDiv.innerHTML += '<br/>< <del>' + areal + ' less than ' + areal2 + '</del>';
+            }
+            resultDiv.innerHTML = '' +
+                bredde + '*' + høyde + '=' + areal + ' areal';
+
+            resultaDiv.innerHTML = '' +
+                bredde2 + '*' + høyde2 + '=' + areal2 + ' areal';
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>
