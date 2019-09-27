@@ -4,34 +4,88 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <style>
+        body{
+            padding:0;
+            margin:0;
+        }
+        div.page{
+            display: grid;
+            grid-area:page;
+            grid-template-areas: 'bredde bredde2'
+                                 'høyde høyde2'
+                                 'resulta resultb'
+        }
+
+        div.boks{
+            grid-area:boks;
+
+        }
+
+        div.boks2{
+            grid-area:boks2
+
+        }
+        div.resultb {
+            grid-area:resultb
+
+        }    
+        div.result{
+            grid-area:result
+        }
+        div.resulta{
+            grid-area:resulta
+        }
+        div.bredde{
+            grid-area:bredde
+        }  
+        div.høyde{
+            grid-area:høyde
+        }        
+        div.bredde2{
+            grid-area:bredde2
+        }        
+        div.høyde2{
+            grid-area:høyde2
+        }        
+        
+    
+    </style>
 </head>
 <body>
-    <input id="bredde" type="range" min="1" max="500" step="1" oninput="calculate()" onchange="calculate()" value="250" />
-    <input id="høyde" type="range" min="1" max="500" step="1" oninput="calculate()" value="250" />
+    
 
-    <input id="bredde2" type="range" min="1" max="500" step="1" style="float:right;"  oninput="calculate()" onchange="calculate()" value="250" />
-    <input id="høyde2" type="range" min="1" max="500" step="1" style="float:right;" oninput="calculate()" value="250" />
-
-
-    <div id="result"></div><br />
-    <div id="resulta" style="float:right;">heisann</div>
-    <div id="boks" style="background-color:green"></div>
-    <div id="boks2" style="background-color:blue; float:right;"></div><br />
-    <div id="resultb"></div>
-
+    
+    
+        
+    <div class="page">
+        <div id="slider">
+            <input id="bredde" type="range" min="1" max="500" step="1" oninput="calculate()" onchange="calculate()" value="250" />
+            <input id="høyde" type="range" min="1" max="500" step="1" oninput="calculate()" value="250" />
+        </div>
+        <div id="slider2">
+            <input id="bredde2" type="range" min="1" max="500" step="1" style="float:right;" oninput="calculate()" onchange="calculate()" value="250" />
+            <input id="høyde2" type="range" min="1" max="500" step="1" style="float:right;" oninput="calculate()" value="250" />
+        </div>
+        <div id="result"></div>
+        <div id="resulta" style="float:right;"></div>
+        <div id="boks" style="background-color:green"></div>
+        <div id="boks2" style="background-color:blue;"></div>
+        <div id="resultb"></div>
+    </div>
     <script>
         var resultDiv = document.getElementById('result');
          
         var breddeInput = document.getElementById('bredde');
         var høydeInput = document.getElementById('høyde');
-        var firkant = document.getElementById('boks')
+        var firkant = document.getElementById('boks');
 
-        var resultaDiv = document.getElementById('resulta')
-        var firkant2 = document.getElementById('boks2')
+        var resultaDiv = document.getElementById('resulta');
+        var firkant2 = document.getElementById('boks2');
         var bredde2Input = document.getElementById('bredde2');
         var høyde2Input = document.getElementById('høyde2');
 
-        var resultbDiv = document.getElementById('resultb')
+        var resultbDiv = document.getElementById('resultb');
 
         calculate();
         function calculate() {
