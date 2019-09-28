@@ -10,20 +10,24 @@
             margin:0;
         }
         div.page{
+            
             display: grid;
             grid-area:page;
-            grid-template-areas: 'bredde bredde2'
-                                 'høyde høyde2'
-                                 'resulta resultb'
+            grid-template-columns: 10fr 2fr;
+            grid-template-areas: 'slider slider2'
+                                 'boks boks2'
+                                 'resulta resultb';
         }
 
         div.boks{
             grid-area:boks;
+            align-items:center;
 
         }
 
         div.boks2{
-            grid-area:boks2
+            grid-area:boks2;
+            align-items:center;
 
         }
         div.resultb {
@@ -40,6 +44,7 @@
             grid-area:slider
         }
         div.slider2{
+            grid-area:slider2
 
         }
 
@@ -98,8 +103,8 @@
             firkant2.style.width = bredde2 + 'px';
             firkant2.style.height = høyde2 + 'px';
 
-            resultbDiv.innerHTML = '' +
-                bredde + '*' + høyde + '=' + areal + ' areal';
+            resultbDiv.innerHTML = ''
+                
             if (areal == areal2) {
                 resultbDiv.innerHTML += '<br>== The numbers are equal';
             } else {
